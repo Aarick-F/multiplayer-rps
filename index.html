@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rock, Paper, Scissors</title>
+  <title>R-P-S!</title>
   <!-- RESET CSS -->
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <!-- MY STYLESHEET -->
@@ -17,7 +17,27 @@
   <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 </head>
 <body>
-
+  <div class="container">
+    <header id="myHeader">
+      <h1>R-P-S!</h1>
+    </header>
+    <section id="content">
+      <div class="inputSection">
+        <p class="inputHeader">CREATE GAME</p>
+        <input class="formInput" id="create-game-nickname" type="text" placeholder="Nickname">
+        <button class="formButton" id="create-game-start">CREATE</button>
+      </div>
+      <div class="inputSection">
+        <p class="inputHeader">JOIN GAME</p>
+        <input class="formInput" id="join-game-nickname" type="text" placeholder="Nickname">
+        <input class="formInput" id="join-game-roomkey" type="text" placeholder="Room Key">
+        <button class="formButton" id="join-game-start">JOIN</button>
+      </div>
+    </section>
+    <footer id="myFooter">
+      <h3>Coded & Designed by Aarick-F</h3>
+    </footer>
+  </div>
 
   <!-- MY SCRIPTS -->
   <script type="text/javascript" src="assets/javascript/app.js"></script>

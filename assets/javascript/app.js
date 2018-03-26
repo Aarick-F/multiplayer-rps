@@ -12,15 +12,33 @@ $(document).ready(() => {
   firebase.initializeApp(config);
   var database = firebase.database();
 
-  database.ref().set({
-    name: "test",
-    please: "work"
+  $("#create-game-start").on("click", function() {
+    player1 = $("#create-game-nickname").val();
+    if(player1.length === 0) {
+      console.log("Give me a nickname, nerd");
+    } else {
+      database.ref("rooms").push(
+        {
+          seed: getSeed(),
+          player1: player1,
+          player1Choice: "",
+          player2: "",
+          player2Choice: ""
+        }
+      );
+    }
+    $("#create-game-nickname").text("");
   });
 
-  database.ref().on("value", function(snapshot) {
-    console.log(snapshot.val());
+  database.ref("rooms").on("value", function(snapshot) {
+    let data = snapshot.val();
+    console.log(data);
   }, function(err) {
     console.log("ERROR", err);
-  })
+  });
+
+  function getSeed() {
+    return Math.floor(Math.random() * 999999);
+  }
 
 });
